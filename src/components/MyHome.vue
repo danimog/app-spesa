@@ -23,6 +23,10 @@
                 </tr>
             </tbody>
         </table>
+
+        Accesso effettuato da: {{ resAccount.name }}
+
+
     </div>
 </template>
 
@@ -35,15 +39,20 @@ export default {
     setup() {
 
         const res = ref({});
+        const resAccount = ref({});
 
 
         onMounted(async () => {
+            await api.createSession('daniele.moggia@gmail.com', 'Vernazza').then(() => console.log("accesso corretto"));
             let data = await api.listDocuments(Server.collectionID);
             res.value = data;
+            let dataAccount = await api.getAccount();
+            resAccount.value = dataAccount;
         })
 
         return {
             res,
+            resAccount,
         }
     }
 }
