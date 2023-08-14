@@ -1,12 +1,12 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
+import MyHome from './components/MyHome.vue';
 </script>
 
 <template>
   <div>
     <h1>👋 Benvenuto!</h1>
   </div>
-  
+  <MyHome />
 </template>
 
 <style scoped>
